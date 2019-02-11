@@ -71,7 +71,14 @@
                 if($dato['password'] == $contrasena){
                     $aux2 = '"' . $dato['id'] . '"';
                     $id_user = $dato['id'];
-                    header('location:index.php?id_user='.$id_user);
+                    
+                    session_start();
+                    $_SESSION['id'] = $dato['id'];
+                    $_SESSION['nombre'] = $dato['nombre'];
+                    $_SESSION['correo'] = $dato['correo'];
+                    
+                    
+                    header('location:index.php');
                 }
               }
 
